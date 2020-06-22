@@ -2,9 +2,9 @@
   .side-bar__header
     .side-bar__header__username
       .side-bar__header__username__left
-        小川
+        = current_user.name
       .side-bar__header__username__right
-      = link_to"#",class:"side-bar__header__username__right" do
+      = link_to edit_user_path(current_user),class:"side-bar__header__username__right" do
         = icon('far', 'edit',class:'post')
         = icon('fas', 'cog',class:'set')
         
