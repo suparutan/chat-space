@@ -4,13 +4,20 @@
       .side-bar__header__username__left
         = current_user.name
       .side-bar__header__username__right
-      = link_to edit_user_path(current_user),class:"side-bar__header__username__right" do
-        = icon('far', 'edit',class:'post')
-        = icon('fas', 'cog',class:'set')
+        = link_to new_group_path,class:"side-bar__header__username__left__btn" do
+          = icon('far', 'edit',class:'post')
+        = link_to edit_user_path(current_user), class:"side-bar__header__username__right__btn" do
+          = icon('fas', 'cog',class:'set')
         
   .side-bar__group-list
-    .side-bar__group-list__name
-      .side-bar__group-list__name__teamname
-        チーム
-      .side-bar__group-list__name__new
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        aaa
+        = link_to '#' do
+          .side-bar__group-list__name
+            .side-bar__group-list__name__teamname
+              = group.name
+            .side-bar__group-list__name__new
+              まだメッセージがありません
+        
+        
