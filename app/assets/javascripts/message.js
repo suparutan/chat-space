@@ -37,10 +37,7 @@ $(function(){
       </div>`
       return html;
     };
-  }
-  $('#new_message').on('submit', function(e){
-  e.preventDefault();
-  console.log('OK');
+
   var formData = new FormData(this);
   var url = $(this).attr('action')
   $.ajax({
