@@ -57,9 +57,9 @@ $(function(){
   })
   .fail(function() {
     alert("メッセージ送信に失敗しました");
-})
+  })
   .always(function(){
-    $('.submit-btn').prop('disabled', false);
+  $('.submit-btn').prop('disabled', false);
   });
 });
 });
