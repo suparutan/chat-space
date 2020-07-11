@@ -37,7 +37,10 @@ $(function(){
       </div>`
       return html;
     };
-
+  }
+$('#new_message').on('submit', function(e){
+  console.log('hoge');
+  e.preventDefault()
   var formData = new FormData(this);
   var url = $(this).attr('action')
   $.ajax({
