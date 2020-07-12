@@ -125,16 +125,16 @@
   }
   &__message-list{
     background-color: #fafafa;
-    height: calc(100vh - 190px);
     width: calc(100vw - 300px);
+    height: calc(100vh - 190px);
     overflow: scroll;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
 
     &__user{
       margin-left: 40px;
       font-size: 16px;
       color: #333333;
-      padding-top: 35px;
+      padding-top: 10px;
       display: flex;
       
       
@@ -179,7 +179,7 @@
   }
   &__message-form{
     background-color: #d2d2d2;
-    height: 90px;
+    height: 100px;
     width: calc(100vw - 300px);
     padding: 20px 40px;
     .new_message{
@@ -189,7 +189,6 @@
     }
     .input-box{
       width: 100%;
-      
       position: relative;
     }
       .input-box_text{

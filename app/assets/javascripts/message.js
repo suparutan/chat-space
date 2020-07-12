@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(message){
     if ( message.image ) {
         var html =
-        `<div class="chat-main__message-list" data-message-id=${message.id}>
+        `<div class="message" data-message-id=${message.id}>
             <div class="chat-main__message-list__user">
               <div class="chat-main__message-list__user__left">
                 ${message.user_name}
@@ -21,7 +21,7 @@ $(function() {
         return html;
       } else {
         var html =
-        `<div class="chat-main__message-list" data-message-id=${message.id}>
+        `<div class="message" data-message-id=${message.id}>
             <div class="chat-main__message-list__user">
               <div class="chat-main__message-list__user__left">
                 ${message.user_name}
@@ -40,7 +40,33 @@ $(function() {
     };
   };
   $('#new_message').on('submit', function(e){
+    console.log('hoge');
     e.preventDefault()
+    var formData = new FormData(this);
+    var url = $(this).attr('action')
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.chat-main__message-list').append(html);
+      $('form')[0].reset();
+      $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      
+    })
+    .fail(function() {
+      alert("メッセージ送信に失敗しました");
+    })
+    .always(function(){
+    $('.submit-btn').prop('disabled', false);
+    });
+    
+  });
     var reloadMessages = function() {
       var last_message_id = $('.message:last').data("message-id");
       $.ajax({
@@ -55,15 +81,14 @@ $(function() {
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
-        $('.messages').append(insertHTML);
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        $('.chat-main__message-list').append(insertHTML);
+        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
       }
       })
       .fail(function() {
         alert('error');
       });
     };
-  });
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
   }
