@@ -128,7 +128,6 @@
     height: calc(100vh - 190px);
     width: calc(100vw - 300px);
     overflow: scroll;
-    padding-bottom: 100px;
 
     &__user{
       margin-left: 40px;
@@ -136,9 +135,6 @@
       color: #333333;
       padding-top: 35px;
       display: flex;
-      
-      
-      
       
       &__left{
         font-size: 16px;
@@ -151,10 +147,10 @@
         margin-left: 10px;
       }
     }
-      &__past{
-        margin-top: 12px;
-        margin-left: 40px;
-        color: #434A54;
+    &__past{
+      margin-top: 12px;
+      margin-left: 40px;
+      color: #434A54;
     }
     &__space{
       margin-top: 46px
@@ -178,7 +174,7 @@
     }
   }
   &__message-form{
-    background-color: #d2d2d2;
+     background-color: #d2d2d2;
     height: 90px;
     width: calc(100vw - 300px);
     padding: 20px 40px;
