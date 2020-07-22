@@ -1,4 +1,4 @@
-app_path = File.expand_path('../../', __FILE__)
+app_path = File.expand_path('../../../', __FILE__)
 
 #アプリケーションサーバの性能を決定する
 worker_processes 1
@@ -11,7 +11,7 @@ pid "#{app_path}/tmp/pids/unicorn.pid"
 
 #ポート番号を指定
 listen "#{app_path}/tmp/sockets/unicorn.sock"
-
+pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 #エラーのログを記録するファイルを指定
 stderr_path "#{app_path}/log/unicorn.stderr.log"
 
